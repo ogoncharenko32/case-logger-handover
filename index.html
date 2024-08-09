@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/newProject/assets/favicon-7457d997.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Handover v0.1</title>
+
+    
+    <script type="module" crossorigin src="/newProject/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/newProject/assets/vendor-77e16229.js">
+    <link rel="stylesheet" href="/newProject/assets/vendor-7a007824.css">
+    <link rel="stylesheet" href="/newProject/assets/index-e1c3fd45.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>
+        <form class="input-form">
+          <div class="date-box">
+            <label for="date-picker">Shift</label>
+            <input class="date-picker" id="date-picker" type="text" />
+          </div>
+          <ul class="input-form-list">
+            <li>
+              <label class="input-form-label"
+                >Case<input
+                  class="form-input form-input-case"
+                  name="forminputcase"
+                  type="text"
+                  placeholder="Place here link to case*"
+                  required
+              /></label>
+            </li>
+            <li>
+              <label class="input-form-label"
+                >Status
+                <select
+                  class="form-input form-input-status"
+                  name="forminputstatus"
+                  id=""
+                  required
+                >
+                  <option value="Ongoing" selected>Ongoing</option>
+                  <option value="WFC">WFC</option>
+                  <option value="Escalated to T2">Escalated to T2</option>
+                  <option value="Pending RMA">Pending RMA</option>
+                  <option value="Pending for MW">Pending for MW</option>
+                  <option value="Resolved">Resolved</option>
+                  <option value="Escalated to CSM">Escalated to CSM</option>
+                  <option value="Escalated to RnD">Escalated to RnD</option>
+                  <option value="Closed">Closed</option>
+                </select></label
+              >
+            </li>
+            <li>
+              <label class="input-form-label"
+                >Description<input
+                  class="form-input form-input-description"
+                  name="forminputdescription"
+                  type="text"
+                  placeholder="Summary for case*"
+                  required
+              /></label>
+            </li>
+            <li>
+              <label class="input-form-label"
+                >Comment<textarea
+                  class="form-input form-input-textarea"
+                  name="forminputtextarea"
+                  type="text"
+                  placeholder="Comment"
+                ></textarea>
+              </label>
+            </li>
+          </ul>
+          <button class="input-form-button" type="submit">Add</button>
+          <div class="export-box">
+            <button class="export-btn" type="button">Export</button>
+          </div>
+        </form>
+      </div>
+      <ul class="cases-table"></ul>
+    </div>
+
+    <div class="modal is-hidden">
+      <div class="input-form modal-form js-modal-form"></div>
+    </div>
+
+    
+  </body>
+</html>
