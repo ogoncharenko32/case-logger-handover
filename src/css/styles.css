@@ -5,21 +5,230 @@
   |============================
 */
 @import url('./reset.css');
-@import url('./vite-promo.css');
 @import url('./header.css');
+
 
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-
+  
   color: #242424;
   background-color: rgba(255, 255, 255, 0.87);
-
+  
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  background-color: #EAEEF6;
+  --font-family: "Poppins", sans-serif;
+}
+
+
+
+.date-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-picker {
+  border: 1px solid #7784ee;
+  border-radius: 8px;
+  width: 120px;
+  box-shadow: 0 5px 15px 0 rgba(119, 132, 238, 0.3);
+  background-color: #fff;
+  padding: 12px;
+  font: inherit;
+  font-weight: 600;
+}
+
+.input-form {
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 8px;
+  width: 348px;
+  box-shadow: 0 30px 60px 0 rgba(32, 56, 85, 0.15);
+  background: #fff;
+  margin-left: 8px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px;
+}
+
+.input-form-button {
+  font-family: inherit;
+  border-radius: 8px;
+  width: 292px;
+  height: 49px;
+  background-color: #7784ee;
+  border: none;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 171%;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.input-form-button:hover {
+  background-color: #d2d7ff;
+}
+
+.form-input {
+  border: 1px solid #7784ee;
+  border-radius: 8px;
+  width: 322px;
+  box-shadow: 0 5px 15px 0 rgba(119, 132, 238, 0.3);
+  background-color: #fff;
+  padding: 12px;
+}
+
+.input-form-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-form-label {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 153%;
+  letter-spacing: 0.02em;
+  color: #121212;
+  width: 322px;
+}
+
+.form-input-textarea {
+  height: 80px;
+  resize: none;
+}
+
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.cases-table {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+  border-collapse: collapse;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 5px 15px 0 rgba(119, 132, 238, 0.3);
+}
+
+.cases-table>li {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  padding: 8px;
+  justify-content: flex-start;
+}
+
+.cases-table>li>div {
+  /* width: 250px; */
+  height: 28px;
+  overflow: hidden;
+}
+
+
+.cases-table>li>div:nth-child(1) {
+  width: 150px;
+}
+.cases-table>li>div:nth-child(2) {
+  width: 150px;
+}
+.cases-table>li>div:nth-child(5) {
+  width: 150px;
+}
+
+td,
+th {
+  /* border: 1px solid #8d8b8b; */
+  text-align: left;
+  padding: 8px;
+  overflow: hidden;
+
+}
+
+tr {
+}
+
+.cases-table > li:nth-child(even) {
+  background-color: #d2d7ff;
+}
+
+.case-btn-div {
+  display: flex;
+  flex-direction: row;
+  padding: 2px;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.delete-btn, .edit-btn, .export-btn {
+
+  font-family: inherit;
+  border-radius: 8px;
+  width: 60px;
+  height: 24px;
+  background-color: #7784ee;
+  border: none;
+  font-size: 15px;
+  line-height: 171%;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.delete-btn {
+  background-color: crimson;
+}
+
+.delete-btn:hover,
+.edit-btn:hover,
+.export-btn:hover {
+  background-color: #d2d7ff;
+}
+
+
+
+.export-box {
+  margin-left: 8px;
+}
+
+
+/* Modal */
+
+
+
+.modal {
+  font-family: inherit;
+  width: 100vw;
+  height: 100vw;
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  left: 0;  
+  background-color: rgba(119, 132, 238, 0.3);
+  transition: top 0.3s;
+}
+
+.is-hidden {
+  top: -300%;
+}
+
+.modal-form {
+  border-radius: 8px;
+  box-shadow: 0 5px 15px 0 rgba(119, 132, 238, 0.3);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  background-color: #fff;
+
+
 }
