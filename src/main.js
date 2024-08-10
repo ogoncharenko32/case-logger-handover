@@ -262,7 +262,7 @@ function openModal(value) {
   modal.classList.remove('is-hidden');
 
   closeBtn.addEventListener('click', closeModal);
-  saveBtn.addEventListener('click', event => updateCase(event, value));``
+  saveBtn.addEventListener('click', event => updateCase(event, value));
 
   renderModal(value);
 }
