@@ -89,18 +89,32 @@ const addToDOM = (key, el) => {
   newTableEl.insertAdjacentHTML(
     'beforeend',
     // `<th><a href="${el.caseLink}" target="_blank">${el.caseLink}</a></th><th class="case-info">${el.caseStatus}</th><th class="case-info">${el.caseDescr}</th><th class="case-info">${el.caseComment}</th><th><div class="case-btn-div"><button class="edit-btn" type="button">Edit</button><button class="delete-btn" type="button">Delete</button></div></th>`
-    `<div><a href="${el.caseLink}" target="_blank">${el.caseLink.slice(
-      el.caseLink.lastIndexOf('/') + 1
+    `<div><a href="${el.caseLink}" target="_blank">${caseName(
+      el.caseLink
     )}</a></div><div><p class="case-info">${
       el.caseStatus
     }</p></div><div><p class="case-info">${
       el.caseDescr
+    }</p><p class="case-info-overlay">${
+      el.caseDescr
     }</p></div><div><p class="case-info">${
+      el.caseComment
+    }</p><p class="case-info-overlay">${
       el.caseComment
     }</p></div><div class="case-btn-div"><button class="edit-btn" type="button">Edit</button><button class="delete-btn" type="button">Delete</button></div>`
   );
   table.append(newTableEl);
 };
+
+function caseName(name) {
+  if (name.includes('jira')) {
+    return name.slice(name.lastIndexOf('/') + 1);
+  } else if (name.includes('lightning.force')) {
+    return `SFDC link`;
+  } else {
+    return name;
+  }
+}
 
 const parseDaily = () => {
   const todayCases = caseList.get(convertDateToKey(curDate));
@@ -153,10 +167,11 @@ const exportBtn = document.querySelector('.export-btn');
 exportBtn.addEventListener('click', event => {
   const todaysCases = caseList.get(convertDateToKey(curDate));
   let output = '';
+  console.log(todaysCases);
   todaysCases.forEach(el => {
-    output += `# ${el.caseLink.slice(el.caseLink.lastIndexOf('/') + 1)} | ${
-      el.caseStatus
-    } | ${el.caseDescr} | ${el.caseComment} \n`;
+    output += `# ${caseName(el.caseLink)} | ${el.caseStatus} | ${
+      el.caseDescr
+    } | ${el.caseComment} \n`;
   });
   navigator.clipboard.writeText(output).then(
     iziToast.show({
@@ -302,4 +317,26 @@ function updateCase(event, value) {
   }
   const saveBtn = document.querySelector('.modal-save-btn');
   saveBtn.removeEventListener('click', event);
+}
+
+//----hide-button-logic
+
+const stateButton = document.querySelector('.input-form-state-button-js');
+let formStateStatusIsActive = true;
+stateButton.addEventListener('click', event => handleFormState(event));
+function handleFormState(e) {
+  if (formStateStatusIsActive) {
+    const form = document.querySelector('.form-wrapper-js');
+    form.style.display = 'none';
+    formStateStatusIsActive = false;
+    e.target.textContent = 'menu';
+    e.target.style.position = 'static';
+  } else {
+    const form = document.querySelector('.form-wrapper-js');
+    form.style.width = '';
+    form.style.display = 'block';
+    formStateStatusIsActive = true;
+    e.target.textContent = 'hide';
+    e.target.style.position = 'absolute';
+  }
 }

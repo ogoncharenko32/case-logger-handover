@@ -31,6 +31,10 @@
 .date-box {
   display: flex;
   flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  margin-bottom: 4px;
 }
 
 .date-picker {
@@ -44,8 +48,14 @@
   font-weight: 600;
 }
 
-.input-form {
+.form-wrapper {
+  width: 355px;
+    border-radius: 8px;
+      box-shadow: 0 30px 60px 0 rgba(32, 56, 85, 0.15);
+      background: #fff;
+}
 
+.input-form {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -57,6 +67,18 @@
   justify-content: space-between;
   align-items: center;
   padding: 28px;
+}
+
+.input-form-state-button {
+  z-index: 2;
+  position: absolute;
+  top: 12px;
+  left: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #fff;
+  font-family: inherit;
+  transition: transform ease-in-out;
 }
 
 .input-form-button {
@@ -138,13 +160,56 @@
 
 
 .cases-table>li>div:nth-child(1) {
-  width: 150px;
+  width: 200px;
+  overflow: hidden;
 }
 .cases-table>li>div:nth-child(2) {
   width: 150px;
 }
+.cases-table>li>div:nth-child(3) {
+  width: 250px;
+  overflow:hidden;
+}
+.cases-table>li>div:nth-child(4) {
+  width: 300px;
+  overflow:hidden;
+}
 .cases-table>li>div:nth-child(5) {
   width: 150px;
+}
+
+.cases-table>li>div {
+  position: relative;
+}
+
+.case-info-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height:max-content;
+  transform: translateX(150%);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background-color: #7784ee;
+  /* transition: transform 20ms cubic-bezier(0.4, 0, 0.2, 1); */
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px 0 rgba(119, 132, 238, 0.3);
+}
+
+.cases-table>li>div:hover {
+  overflow: visible;
+}
+
+
+
+.cases-table>li>div:hover .case-info-overlay {
+  transform: translateY(0%);
+  z-index: 1;
 }
 
 td,
@@ -162,6 +227,8 @@ tr {
 .cases-table > li:nth-child(even) {
   background-color: #d2d7ff;
 }
+
+
 
 .case-btn-div {
   display: flex;
@@ -183,6 +250,10 @@ tr {
   line-height: 171%;
   letter-spacing: 0.02em;
   color: #fff;
+}
+
+.export-btn {
+  height: 32px;
 }
 
 .delete-btn {
@@ -215,11 +286,12 @@ tr {
   top: 0;
   left: 0;  
   background-color: rgba(119, 132, 238, 0.3);
-  transition: top 0.3s;
+  transition: top 0.5s;
 }
 
 .is-hidden {
   top: -300%;
+  background-color: transparent;
 }
 
 .modal-form {
