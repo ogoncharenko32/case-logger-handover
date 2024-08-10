@@ -262,7 +262,7 @@ function openModal(value) {
   modal.classList.remove('is-hidden');
 
   closeBtn.addEventListener('click', closeModal);
-  saveBtn.addEventListener('click', event => updateCase(event, value));
+  saveBtn.addEventListener('click', event => updateCase(event, value));``
 
   renderModal(value);
 }
@@ -277,8 +277,10 @@ function closeModal() {
 }
 
 function renderModal(obj) {
+  loadMapFromLS(```);
   const key = obj.classList[0];
   const caseObj = caseList.get(convertDateToKey(curDate)).get(key);
+  console.log('caseObj :', caseObj);
   const caseEl = document.querySelector('.modal-form-input-case');
   const caseStatus = document.querySelector('.modal-form-input-status');
   const caseDescr = document.querySelector('.modal-form-input-description');
