@@ -277,7 +277,7 @@ function closeModal() {
 }
 
 function renderModal(obj) {
-  loadMapFromLS(```);
+  loadMapFromLS();
   const key = obj.classList[0];
   const caseObj = caseList.get(convertDateToKey(curDate)).get(key);
   console.log('caseObj :', caseObj);
