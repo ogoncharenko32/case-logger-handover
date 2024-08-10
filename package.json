@@ -1,11 +1,11 @@
 {
-  "name": "newproject",
+  "name": "case-logger-handover",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/newProject/",
+    "build": "vite build --base=/case-logger-handover/",
     "preview": "vite preview"
   },
   "devDependencies": {
