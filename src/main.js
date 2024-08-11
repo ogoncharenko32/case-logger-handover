@@ -342,3 +342,20 @@ function handleFormState(e) {
     e.target.style.position = 'absolute';
   }
 }
+
+///-----Clock
+
+function clockInit() {
+  const clock = document.querySelector('.clock');
+  setInterval(() => {
+    const hrs = new Date().getHours();
+    const min = new Date().getMinutes();
+    const sec = new Date().getSeconds();
+
+    clock.textContent = `${hrs < 10 ? `0${hrs}` : hrs}:${
+      min < 10 ? `0${min}` : min
+    }:${sec < 10 ? `0${sec}` : sec}`;
+  }, 1000);
+}
+
+clockInit();
